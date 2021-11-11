@@ -50,14 +50,14 @@ char *ccsv_nextfield(struct ccsv *ccsv, char *type)
       {
         char *p=((ccsv)->line++)-1;
         if(sep=='"'&&NULL!=((ccsv)->line=strchr(p,(ccsv)->delim))) ++(ccsv)->line;
-        while(isspace(*p)) --p;
+        if(sep!='"') while(isspace(*p)) --p;
         *++p='\0';
       }
     }
     if(NULL==(ccsv)->line)
     {
       char *p=&ret[strlen(ret)-1];
-      while(isspace(*p)) --p;
+      if(sep!='"') while(isspace(*p)) --p;
       *++p='\0';
     }
   }

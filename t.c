@@ -9,6 +9,7 @@ static const char *csv[]=
   "aaa,   \"bbb\" , ccc",
   "   aaa   ,   \"b\"\",,,,b\", ccc  ",
   "aaa,b\"bb,ccc",
+  "aaa, \" ccc \" , \" ccc \"",
   NULL
 };
 
@@ -26,6 +27,9 @@ static const char *fields[]=
   "aaa",
   "b\"bb",
   "ccc",
+  "aaa",
+  " ccc ",
+  " ccc ",
   NULL
 };
 
