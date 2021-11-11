@@ -1,7 +1,7 @@
 # ccsv
-CSV parser as a C header only library
+header only CSV line parser
 
-- rfc 4180 compatible CSV parser
+- rfc 4180 compliant CSV line parser
 - header only
 - no heap allocated
-
+- TODO: implement as pure macros
