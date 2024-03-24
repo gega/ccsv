@@ -1,6 +1,8 @@
 #ifndef CCSV_H
 #define CCSV_H
 
+/* https://github.com/gega/ccsv */
+
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
@@ -36,6 +38,7 @@ do { \
 char *ccsv_nextfield(struct ccsv *ccsv, char *type)
 {
   char *ret=(ccsv)->line;
+  char *base=(ccsv)->line;
 
   if(NULL!=ret)
   {
@@ -50,7 +53,7 @@ char *ccsv_nextfield(struct ccsv *ccsv, char *type)
       {
         char *p=((ccsv)->line++)-1;
         if(sep=='"'&&NULL!=((ccsv)->line=strchr(p,(ccsv)->delim))) ++(ccsv)->line;
-        if(sep!='"') while(isspace(*p)) --p;
+        if(sep!='"') while(p>base&&isspace(*p)) --p;
         *++p='\0';
       }
     }
